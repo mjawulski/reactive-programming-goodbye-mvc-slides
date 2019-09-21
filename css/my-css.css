@@ -1,0 +1,59 @@
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+.my-photo {
+  float: left;
+  width: 350px;
+}
+
+.about-me-list {
+  font-size: 0.6em !important;
+}
+
+.dark {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+img.clear {
+  border: 0 !important;
+  background: none !important;
+}
+
+.reveal a {
+  color: #ffa000;
+}
+
+img {
+  max-height: 800px;
+}
+
+.reveal .no-border {
+  border: 0px;
+}
+.reveal .footer .images img {
+  max-width: 200px;
+}
+.reveal .footer {
+  position: absolute;
+  bottom: 1em;
+  left: 1em;
+  font-size: 0.5em;
+}
+
+.wc-frameworks figure {
+  display: block;
+  float: left;
+  max-width: 300px;
+}
+
+.wc-frameworks img {
+  border: 0 !important;
+  background: none !important;
+  box-shadow: none !important;
+  height: 300px;
+}
+
+.wc-frameworks figcaption {
+  font-size: 0.5em;
+}
