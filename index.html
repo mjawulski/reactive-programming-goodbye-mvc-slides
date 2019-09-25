@@ -29,24 +29,30 @@
       <div class="footer">
         <div class="images" style="margin-left: 550px; display: flex; align-items: center;">
           <img src="img/Twitter_Logo_Blue.png" style="max-height: 45px;" />
-          @mjawulski <span style="margin: 0 10px">
-          
+          <span style="margin-right: 10px">@mjawulski</span>
+
           <img src="img/capgemini-logo.png" />
         </div>
       </div>
+
       <div class="slides">
         <section>
           <h2>Reactive programming. Goodbye MVC?</h2>
         </section>
         <section>
           <section><h1>How we do software?</h1></section>
-          <section>Image with app - backend - datastore</section>
           <section>
-              <h4>Design patterns</h4>
-              <h5 class="fragment">
-                King is only one
-                </h5>
-                <h2 class="fragment">MVC</h2>
+            <img src="img/apps-api-datastore.svg" class="clear scaled" />
+          </section>
+          <section>
+            <h4>Design patterns</h4>
+            <h5 class="fragment">
+              King is only one
+            </h5>
+            <h2 class="fragment">MVC</h2>
+          </section>
+          <section>
+            <img src="img/article/Rysunek 1.svg" class="clear scaled" />
           </section>
         </section>
         <section>
@@ -56,34 +62,256 @@
             <li>Intuitive</li>
             <li>One of the first design pattern we learn</li>
             <li>Used everywhere (sometimes in slightly different form)</li>
+            <li class="fragment">but...</li>
+          </ul>
+        </section>
+        <section>
+          <section>
+            <h2>MVC</h2>
+            <ul>
+              <li>looks different in real world application</li>
+            </ul>
+          </section>
+          <section>
+            <img src="img/article/Rysunek 3.svg" class="clear scaled" />
+          </section>
+          <section>
+            <img src="img/spaghetti.svg" class="clear scaled" />
+          </section>
+          <section>
+            <h2>MVC</h2>
+            <ul>
+              <li>Looks different in real world application</li>
+              <li>Hard to scale</li>
+              <li class="fragment">Bi-directional</li>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <section>
+            <img src="img/apps-api-datastore.svg" class="clear scaled" />
+          </section>
+          <section><img src="img/article/Rysunek 1.svg" class="clear scaled" /></section>
+          <section>
+            <img src="img/programming-languages.jpeg" class="clear scaled" />
+            <br />
+            <span style="font-size:0.5em"
+              >https://hackernoon.com/top-3-programming-language-to-watch-out-in-2019-95995e81ad2b</span
+            >
+          </section>
+        </section>
+        <section>
+          <h2>Imperative programming</h2>
+          <ul>
+            <li>Control every step of execution</li>
+            <li>In most cases very first way of programming style we learn</li>
+            <li>It`s super easy to understand</li>
+            <li>Intuitive</li>
+            <li>Used (almost) everywhere</li>
+            <li class="fragment">but...</li>
+          </ul>
+        </section>
+        <section>
+          <section>
+            <h2>Imperative programming</h2>
+            <ul>
+              <li>We are responsible for getting right result</li>
+              <li>Step by step explain how to go from A to B</li>
+            </ul>
+          </section>
+
+          <section>
+            <pre><code class="hljs" data-trim data-line-numbers="1-3">
+                  let amountInDollars = getUserInput(); //100
+                  let exchangeRate = getExchangeRate(); //3.5
+                  let amountInPln = amountInDollars*exchangeRate; //350
+                </code></pre>
+          </section>
+          <section>
+            <pre><code class="hljs" data-trim data-line-numbers="1-3">
+                    exchangeRate = getExchangeRate(); //3.6
+                    amountInPln = ?
+                  </code></pre>
+          </section>
+        </section>
+
+        <section>
+          <h3>Are there other ways to do things?</h3>
+          <h1 class="fragment">YES!</h1>
+        </section>
+        <section>
+          <section>
+            <h2>Functional Reactive programming</h2>
+            <ul>
+              <li>Asynchronous Data Streams</li>
+            </ul>
+          </section>
+          <section>
+            <h5>Value changes</h5>
+            <img src="img/streams/basic.svg" class="clear scaled" />
+          </section>
+          <section>
+            <h5>Events (click, load, keydown)</h5>
+            <img src="img/streams/click.svg" class="clear scaled" />
+          </section>
+          <section>
+            <h5>Operators (map)</h5>
+            <img src="img/streams/map.svg" class="clear scaled" />
+          </section>
+          <section>
+            <h5>Operators (filter)</h5>
+            <img src="img/streams/filter.svg" class="clear scaled" />
+          </section>
+          <section>
+            <h5>Exchange stream</h5>
+            <img src="img/streams/exchange.svg" class="clear scaled" />
+          </section>
+        </section>
+        <section data-background="http://i.giphy.com/nNxT5qXR02FOM.gif">
+          <h2>DEMO TIME!</h2>
+        </section>
+        <section>
+          <h2>Functional Reactive Programming</h2>
+          <ul>
+            <li>WHAT instead of HOW</li>
+            <li>RESULT instead of INSTRUCTIONS</li>
+          </ul>
+        </section>
+        <section>
+          <h2>What about MVC?</h2>
+          <ul>
+            <li>Hard to scale</li>
+            <li>Bi-directional</li>
+          </ul>
+        </section>
+        <section>
+          <section>
+            <h2>How about FLUX?</h2>
+            <img src="img/article/Rysunek 7.svg" class="clear scaled" />
+          </section>
+          <section>
+            <h2>Store</h2>
+            <ul>
+              <li>Holds the data of an application</li>
+              <li>Data in a store must only be mutated by responding to an action</li>
+              <li>Every time a store's data changes it must emit a "change" event</li>
+            </ul>
+            <pre><code class="hljs" data-trim data-line-numbers="1-3">
+                {
+                  users: [{id: 1, name: "Bob"},{id: 2, name: "Kate"}],
+                  selectedUser: {id: 1, name: "Bob"}
+                }
+              </code></pre>
+          </section>
+          <section>
+            <h2>View</h2>
+            <ul>
+              <li>Subscribe to events emitted by store (re-render)</li>
+              <li>Dispatches an action when user interacts with the UI</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Action</h2>
+            <ul>
+              <li>Intention to change application state</li>
+              <li>define the internal API of your application</li>
+            </ul>
+            <pre><code class="hljs" data-trim data-line-numbers="1-3">
+                              {
+                                type: "ADD_USER",
+                                payload: {id: 3, name: "John"}
+                              }
+                            </code></pre>
+          </section>
+          <section>
+            <h2>Dispatcher</h2>
+            <ul>
+              <li>Acts when new action is dispatched</li>
+              <li>Produce new state of application</li>
+            </ul>
+            <pre><code class="hljs" data-trim data-line-numbers="1-3">
+                reduce(state, action) {
+                  switch (action.type) {
+                    case "ADD_USER":
+                      return [...state.users, action.payload]
+                    default:
+                      return state;
+                  }
+                }
+              </code></pre>
+          </section>
+        </section>
+        <section>
+          <h2>Flux 👍</h2>
+          <ul>
+            <li>Unidirectional dataflow</li>
+            <li>Works pretty well with reactive concept</li>
+            <li>Popular implementation: Redux</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Flux/Redux 👎</h2>
+          <ul>
+            <li>Adds a lot of boilerplate code</li>
+            <li>Adds complexity to the app</li>
+            <li>When not to use it? Read: https://medium.com/@dan_abramov/you-might-not-need-redux-be46360cf367</li>
+          </ul>
+        </section>
+        <section>
+          <h1>Is it the end of MVC?</h1>
+          <h1 class="fragment">I don`t think so!</h1>
+        </section>
+        <section>
+          <h3>Resources</h3>
+          <ul>
+            <li>http://reactivex.io/</li>
+            <li>https://rxmarbles.com/</li>
+            <li>https://www.learnrxjs.io/</li>
+          </ul>
+        </section>
+        <section>
+          <img src="img/my-photo.jpg" class="my-photo" />
+          <h4>About me</h4>
+          <ul class="about-me-list">
+            <li>Senior Software Engineer</li>
+            <li>Professional code reader</li>
+            <li>Twitter: @mjawulski</li>
+          </ul>
+        </section>
+        <section>
+          <h1>🙏</h1>
+          <ul>
+            <li class="fragment fade-up">
+              👍 twitter.com/mjawulski | #pozitiveTech
+            </li>
           </ul>
         </section>
       </div>
-    </div>
 
-    <script src="lib/js/head.min.js"></script>
-    <script src="js/reveal.js"></script>
+      <script src="lib/js/head.min.js"></script>
+      <script src="js/reveal.js"></script>
 
-    <script>
-      // More info about config & dependencies:
-      // - https://github.com/hakimel/reveal.js#configuration
-      // - https://github.com/hakimel/reveal.js#dependencies
-      Reveal.initialize({
-        dependencies: [
-          { src: 'plugin/markdown/marked.js' },
-          { src: 'plugin/markdown/markdown.js' },
-          { src: 'plugin/notes/notes.js', async: true },
-          {
-            src: 'plugin/highlight/highlight.js',
-            async: true,
-            callback: function() {
-              hljs.initHighlightingOnLoad();
+      <script>
+        // More info about config & dependencies:
+        // - https://github.com/hakimel/reveal.js#configuration
+        // - https://github.com/hakimel/reveal.js#dependencies
+        Reveal.initialize({
+          dependencies: [
+            { src: 'plugin/markdown/marked.js' },
+            { src: 'plugin/markdown/markdown.js' },
+            { src: 'plugin/notes/notes.js', async: true },
+            {
+              src: 'plugin/highlight/highlight.js',
+              async: true,
+              callback: function() {
+                hljs.initHighlightingOnLoad();
+              }
             }
-          }
-        ],
-        history: true
-      });
-      Reveal.configure({ slideNumber: 'c/t' });
-    </script>
+          ],
+          history: true
+        });
+        Reveal.configure({ slideNumber: 'c/t' });
+      </script>
+    </div>
   </body>
 </html>
